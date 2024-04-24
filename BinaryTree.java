@@ -9,10 +9,10 @@ import java.util.*;
 
 /**
  *
- * @author gunterherd
+ * 
  * @class CS244
  * @professor Radie
- * @HW Lab 4
+ * @Project 1
  * @quarter Spring 2024
  */
 
