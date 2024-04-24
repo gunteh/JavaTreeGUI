@@ -7,15 +7,17 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     //create btree
     public void createTree(T[] arr){
-        for(int i = 0; i < arr.length; ++i){
-            insert(arr[i]);
+        for(T key: arr){
+            insert(key);
         }
     }
 
     //insert methods
-    public void insert(T key){
-        Node<T> node = new Node<T>(key);
+    public long insert(T key){
+        long start = System.nanoTime();
+        Node<T> node = new Node<>(key);
         root = insertHelper(root, node);
+        return System.nanoTime() - start;
     }
     private Node<T> insertHelper(Node<T> root, Node<T> node){
 
@@ -151,12 +153,12 @@ public class BinarySearchTree<T extends Comparable<T>> {
         while(curr != null){
             //found node
             if(key.compareTo(curr.data) == 0){
-                //check if its a leaf node
+                //check if it's a leaf node
                 if(curr.left == null && curr.right == null){
                     if(parent == null){
                         root = null;
                     }
-                    //remove refrence
+                    //remove reference
                     else if(parent.left == curr){
                         parent.left = null;
                     }
@@ -184,7 +186,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 //has a left child
                 else if(curr.right == null){
                     if(parent == null){
-                        root = curr.right;
+                        root = null;
                     }                 
                     else if(parent.left == curr){
                         parent.left = curr.left;
@@ -194,7 +196,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
                     }
                     return;
                 }
-                //has two childs
+                //has two children
                 else{
                     //go right then go all the way left
                     Node<T> successorParent = curr;
@@ -229,14 +231,16 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     //delete methods
-    public void remove(T key){
+    public long remove(T key){
+        long start = System.nanoTime();
         removeNodeHelper(root, key);
+        return System.nanoTime() - start;
     }
     private Node<T> removeNodeHelper(Node<T> root, T key){
 
         //searching for node
         if(root == null){
-            return root;
+            return null;
         }
         //found node
         else if(key.compareTo(root.data) == 0){
@@ -258,7 +262,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 root.right = removeNodeHelper(root.right, root.data);
             }
             //left child
-            else if(root.left != null ){
+            else {
                 Node<T> max = root.left;
                 //find maximum on left side
                 //keep going until leaf
@@ -301,12 +305,8 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     //check if tree is BST or not
     public boolean isBST(){
-        ArrayList<T> order = new ArrayList<T>();
+        ArrayList<T> order = new ArrayList<>();
         getInOrder(root, order);
-        /*System.out.print("Order is: ");
-        for(int i = 0; i < order.size(); ++i){
-            System.out.print(order.get(i) + ", ");
-        }*/
         //check if in order
         for(int i = 1; i < order.size(); ++i){
             if(order.get(i-1).compareTo(order.get(i)) > 0){
@@ -327,7 +327,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     //convert to BST
     public BinarySearchTree<T> convertToBST(BinarySearchTree<T> tree){
-        ArrayList<T> order = new ArrayList<T>();
+        ArrayList<T> order = new ArrayList<>();
         getInOrder(tree.root, order);
         //sort the order
         Collections.sort(order);

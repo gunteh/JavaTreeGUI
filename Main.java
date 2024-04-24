@@ -6,11 +6,6 @@ public class Main {
         //tree 2
         AVLTree<Integer> tree2 = new AVLTree<>();
         tree2.createTree(new Integer[]{10,5,20,3,8,30,7,9,25});
-        System.out.println("AVL Tree");
-        //tree2.traverse(2);
-        tree2.printTree();
-        tree2.remove(3);
-        System.out.println("Removal");
-        tree2.printTree();
+        System.out.println(tree2.remove(30));
     }
 }
