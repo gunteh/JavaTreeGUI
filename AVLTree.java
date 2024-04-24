@@ -101,7 +101,7 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T>{
     private Node<T> removeNodeHelper(Node<T> root, Node<T> key){
         //normal deletion of node
         if(root == null){
-            return root;
+            return null;
         }
         else if(key.data.compareTo(root.data) == 0){
             if(root.left == null && root.right == null){
@@ -115,7 +115,7 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T>{
                 root.data = min.data;
                 root.right = removeNodeHelper(root.right, root);
             }
-            else if(root.left != null ){
+            else {
                 Node<T> max = root.left;
                 while(max.right != null){
                     max = max.right;
