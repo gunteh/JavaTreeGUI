@@ -3,9 +3,9 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T>{
 
     @Override
     public long insert(T key){
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         root = insertHelper(root, new Node<>(key));
-        return System.currentTimeMillis() - start;
+        return System.nanoTime() - start;
     }
     private Node<T> insertHelper(Node<T> root, Node<T> node){
         //normal insertion
@@ -88,7 +88,7 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T>{
     //removing nodes
     @Override
     public long remove(T key){
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         Node<T> node = super.getNode(root, key);
         if(node == null){
             System.out.println("Could not find node " + key);
@@ -96,7 +96,7 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T>{
         else{            
             removeNodeHelper(root, super.getNode(root, key));  
         }
-        return System.currentTimeMillis() - start;
+        return System.nanoTime() - start;
     }
     private Node<T> removeNodeHelper(Node<T> root, Node<T> key){
         //normal deletion of node

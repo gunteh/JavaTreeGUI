@@ -14,10 +14,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     //insert methods
     public long insert(T key){
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         Node<T> node = new Node<>(key);
         root = insertHelper(root, node);
-        return System.currentTimeMillis() - start;
+        return System.nanoTime() - start;
     }
     private Node<T> insertHelper(Node<T> root, Node<T> node){
 
@@ -232,9 +232,9 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     //delete methods
     public long remove(T key){
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         removeNodeHelper(root, key);
-        return System.currentTimeMillis() - start;
+        return System.nanoTime() - start;
     }
     private Node<T> removeNodeHelper(Node<T> root, T key){
 
