@@ -7,13 +7,21 @@
  *
  * @author gunterherd
  */
-
+import javafx.application.Application;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 //import JavaTreeGUI.src.main.java.BstVisualiser;
 //import JavaTreeGUI.src.main.java.AVL;
+
+import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 
 public class AvlVisualizer extends BstVisualiser {
     private static AVL<Integer> tree;
