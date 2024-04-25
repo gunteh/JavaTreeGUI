@@ -22,7 +22,7 @@ public class AvlPane extends BstPane {
     private AVLTree<Integer> treeNode;
     private double verticalGap = 50;
 
-    AvlPane(AVL<Integer> tree){
+    AvlPane(AVLTree<Integer> tree){
         this.treeNode = tree;
         setStatus("Empty Tree");
         setBackground(new Background(new BackgroundFill(Color.web("#" + "9ACD32"), CornerRadii.EMPTY, Insets.EMPTY)));
