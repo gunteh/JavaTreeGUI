@@ -7,8 +7,8 @@
  *
  * @author gunterherd
  */
-//import JavaTreeGUI.src.main.java.TreeNode;
-//import JavaTreeGUI.src.main.java.BST;
+import JavaTreeGUI.src.main.java.TreeNode;
+import JavaTreeGUI.src.main.java.BST;
 
 import java.util.ArrayList;
 
