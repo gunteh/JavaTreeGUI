@@ -15,7 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 //import JavaTreeGUI.src.main.java.BstVisualizer;
-//import JavaTreeGUI.src.main.java.AVL;
+import src.main.java.AVLTree;
 
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
@@ -24,7 +24,7 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 public class AvlVisualizer extends BstVisualizer {
-    private static AVL<Integer> tree;
+    private static AVLTree<Integer> tree;
     private static AvlPane view;
 
     @Override
