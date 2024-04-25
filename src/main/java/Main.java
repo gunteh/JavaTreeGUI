@@ -38,7 +38,6 @@ public class Main extends Application {
         }
         primaryStage.getIcons().add(new Image("file:data/icon.jpg"));
         primaryStage.show();
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, "This is a data-tree animation created by Ankit Sharma!", ButtonType.OK);
         alert.getDialogPane().setMinHeight(80);
         alert.show();
     }
