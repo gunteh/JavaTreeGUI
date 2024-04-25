@@ -25,13 +25,13 @@ import javafx.scene.text.Text;
 public class BstPane extends Pane {
     private BST<Integer> tree;
     private double radius = 15;
-    private double vGap = 50;
+    private double verticalGap = 50;
 
     protected BstPane(){ }
 
     BstPane(BST<Integer> tree){
         this.tree = tree;
-        setStatus("Tree is empty");
+        setStatus("Tree is empty"); //default tree will be empty
         setBackground(new Background(new BackgroundFill(Color.web("#" + "40E0D0"), CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
@@ -42,19 +42,19 @@ public class BstPane extends Pane {
      public void displayTree(){
         this.getChildren().clear();
         if(tree.getRoot() != null){
-            displayTree(tree.getRoot(), getWidth() / 2, vGap, getWidth() / 4, Color.MEDIUMPURPLE);
+            displayTree(tree.getRoot(), getWidth() / 2, verticalGap, getWidth() / 4, Color.MEDIUMPURPLE);
         }
     }
 
     protected void displayTree(TreeNode<Integer> root, double x, double y, double hGap, Color color){
         if(root.left != null){
-            getChildren().add(new Line(x - hGap, y + vGap, x, y));
-            displayTree(root.left, x - hGap, y + vGap, hGap / 2,color);
+            getChildren().add(new Line(x - hGap, y + verticalGap, x, y));
+            displayTree(root.left, x - hGap, y + verticalGap, hGap / 2,color);
         }
 
         if (root.right != null){
             getChildren().add(new Line(x + hGap, y + vGap, x, y));
-            displayTree(root.right, x + hGap, y + vGap, hGap / 2, color);
+            displayTree(root.right, x + hGap, y + verticalGap, hGap / 2, color);
         }
 
         Circle circle = new Circle(x, y, radius);
