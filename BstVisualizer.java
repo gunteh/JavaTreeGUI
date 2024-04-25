@@ -9,7 +9,7 @@
  * @author gunterherd
  */
 
-//import JavaTreeGUI.src.main.java.BST;
+import src.main.java.Trees.BinarySearchTree;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -26,7 +26,7 @@ public class BstVisualizer extends Application {
     private static ArrayList<Integer> nodes = new ArrayList<>();
     @Override
     public void start(Stage primaryStage){
-        BST<Integer> tree = new BST<>();
+        BinarySearchTree<Integer> tree = new BST<>();
         BorderPane pane = new BorderPane();
         BstPane view = new BstPane(tree);
         setPane(pane, view, tree);
