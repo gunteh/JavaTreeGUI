@@ -10,7 +10,7 @@
  */
 
 //import JavaTreeGUI.src.main.java.TreeNode;
-//import JavaTreeGUI.src.main.java.BST;
+import src.main.java.Trees.BinarySearchTree;
 
 import javafx.geometry.Insets;
 import javafx.scene.layout.Background;
@@ -23,13 +23,13 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 
 public class BstPane extends Pane {
-    private BST<Integer> tree;
+    private BinarySearchTree<Integer> tree;
     private double radius = 15;
     private double verticalGap = 50;
 
     protected BstPane(){ }
 
-    BstPane(BST<Integer> tree){
+    BstPane(BinarySearchTree<Integer> tree){
         this.tree = tree;
         setStatus("Tree is empty"); //default tree will be empty
         setBackground(new Background(new BackgroundFill(Color.web("#" + "40E0D0"), CornerRadii.EMPTY, Insets.EMPTY)));
