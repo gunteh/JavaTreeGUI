@@ -19,12 +19,12 @@ import javafx.scene.text.Text;
 //import JavaTreeGUI.src.main.java.AVL;
 
 public class AvlPane extends BstPane {
-    private AVL<Integer> tree;
-    private double vGap = 50;
+    private AVL<Integer> treeNode;
+    private double verticalGap = 50;
 
     AvlPane(AVL<Integer> tree){
-        this.tree = tree;
-        setStatus("Tree is empty");
+        this.treeNode = tree;
+        setStatus("Empty Tree");
         setBackground(new Background(new BackgroundFill(Color.web("#" + "9ACD32"), CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
@@ -36,8 +36,8 @@ public class AvlPane extends BstPane {
     @Override
     public void displayTree(){
         this.getChildren().clear();
-        if(tree.getRoot() != null){
-            displayTree(tree.getRoot(), getWidth() / 2, vGap, getWidth() / 4, Color.SEAGREEN);
+        if(treeNode.getRoot() != null){
+            displayTree(treeNode.getRoot(), getWidth() / 2, verticalGap, getWidth() / 4, Color.SEAGREEN);
         }
     }
 }

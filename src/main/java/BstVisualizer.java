@@ -32,7 +32,7 @@ public class BstVisualizer extends Application {
         setPane(pane, view, tree);
         setStage(pane, primaryStage, "Binary Search Tree Visualization");
         Alert alert = new Alert(Alert.AlertType.INFORMATION,"This is a BST Visualization\n\n" +
-                "Insert button inserts a node, delete button deletes a node.", ButtonType.OK);
+                "Use insert to add a node, use delete to remove a node.", ButtonType.OK);
         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
         alert.show();
     }
@@ -54,7 +54,7 @@ public class BstVisualizer extends Application {
         Button delete = new Button("Delete");
         addFunctionalities(textField, insert, delete, tree, view);
         HBox hBox = new HBox(5);
-        hBox.getChildren().addAll(new Label("Enter a value"), textField, insert, delete);
+        hBox.getChildren().addAll(new Label("Enter a value here"), textField, insert, delete);
         hBox.setAlignment(Pos.BASELINE_CENTER);
         pane.setBottom(hBox);
     }
@@ -62,7 +62,7 @@ public class BstVisualizer extends Application {
     public void addFunctionalities(TextField textField, Button insert, Button delete, BST<Integer> tree, BstPane view){
         insert.setOnAction(e->{
             if(textField.getText().length() == 0) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION, "You haven't entered anything!", ButtonType.OK);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Nothing entered", ButtonType.OK);
                 alert.getDialogPane().setMinHeight(80);
                 alert.show();
             }
@@ -71,11 +71,11 @@ public class BstVisualizer extends Application {
                 nodes.add(key);
                 if (tree.search(key)) {
                     view.displayTree();
-                    view.setStatus(key + " is already present!");
+                    view.setStatus(key + " is present already");
                 } else {
                     tree.insert(key);
                     view.displayTree();
-                    view.setStatus(key + " is inserted!");
+                    view.setStatus(key + " is inserted");
                 }
                 textField.clear();
             }
@@ -85,12 +85,12 @@ public class BstVisualizer extends Application {
             int key = Integer.parseInt(textField.getText());
             if(!tree.search(key)){
                 view.displayTree();
-                view.setStatus(key +" is not present!");
+                view.setStatus(key +" is not present");
             }
             else{
                 tree.delete(key);
                 view.displayTree();
-                view.setStatus(key+" is replaced by its predecessor and is deleted!");
+                view.setStatus(key+" is replaced and is deleted");
             }
             textField.clear();
         });
