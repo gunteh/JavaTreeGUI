@@ -16,10 +16,10 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-//import JavaTreeGUI.src.main.java.AVL;
+import src.main.java.AVLTree;
 
 public class AvlPane extends BstPane {
-    private AVL<Integer> treeNode;
+    private AVLTree<Integer> treeNode;
     private double verticalGap = 50;
 
     AvlPane(AVL<Integer> tree){
