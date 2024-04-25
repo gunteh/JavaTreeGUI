@@ -1,3 +1,4 @@
+package com.mycompany.javatreegui;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -31,14 +32,14 @@ public class Main extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("FXML/View.fxml"));
             primaryStage.setTitle("Trees");
-            primaryStage.setScene(new Scene(root, 410, 340));
+            primaryStage.setScene(new Scene(root));
         }
         catch (NullPointerException e){
             e.getMessage();
         }
         primaryStage.getIcons().add(new Image("file:data/icon.jpg"));
         primaryStage.show();
-        alert.getDialogPane().setMinHeight(80);
-        alert.show();
+        // alert.getDialogPane().setMinHeight(80);
+        // alert.show();
     }
 }
