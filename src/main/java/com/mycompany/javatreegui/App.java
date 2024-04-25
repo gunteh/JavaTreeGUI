@@ -13,13 +13,24 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    private static Scene scene;
+    private static Scene scene;     
+
+    //variables
+    double buttonWidth = 220;
+    double buttonHeight = 30;
+    double spaceBetweenButtons = 20;  
+    int stageWidth = 1000;
+    int stageHeight = 800;
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     @SuppressWarnings("exports")
     @Override
     public void start(Stage stage) throws IOException {
         try {
-         // Main layout is a BorderPane shown in a Scene
+            // Main layout is a BorderPane shown in a Scene
             BorderPane root = new BorderPane();
             Scene scene = new Scene(root, 1000, 800);
 
@@ -34,10 +45,6 @@ public class App extends Application {
             Button avlButton = new Button("AVL Tree");
             Button bstButton = new Button("BST Tree");
 
-            double buttonWidth = 220;
-            double buttonHeight = 30;
-            double spaceBetweenButtons = 20;
-
             // Set preferred sizes for buttons
             avlButton.setPrefWidth(buttonWidth);
             avlButton.setPrefHeight(buttonHeight);
@@ -48,8 +55,8 @@ public class App extends Application {
             anchorPane.getChildren().addAll(avlButton, bstButton);
 
             // Calculate center positions
-            double centerX = (1000 - buttonWidth) / 2; // Assuming fixed window width
-            double centerY = (800 - (2 * buttonHeight + spaceBetweenButtons)) / 2; // Assuming fixed window height
+            double centerX = (stageWidth - buttonWidth) / 2; // Assuming fixed window width
+            double centerY = (stageHeight - (2 * buttonHeight + spaceBetweenButtons)) / 2; // Assuming fixed window height
 
             // Position buttons within the AnchorPane
             AnchorPane.setLeftAnchor(avlButton, centerX);
@@ -62,15 +69,13 @@ public class App extends Application {
 
             // Stage settings
             stage.setScene(scene);
-            stage.setTitle("Group Tree Project");
+            stage.setTitle("Tree Data Structure Visualization");
+            stage.setWidth(stageWidth);
+            stage.setHeight(stageHeight);
+            stage.setResizable(false);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
 }
