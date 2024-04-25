@@ -8,7 +8,7 @@
  * @author gunterherd
  */
 
-import JavaTreeGUI.src.main.java.BstPane;
+//import JavaTreeGUI.src.main.java.BstPane;
 
 import javafx.geometry.Insets;
 import javafx.scene.layout.Background;
@@ -16,7 +16,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import JavaTreeGUI.src.main.java.AVL;
+//import JavaTreeGUI.src.main.java.AVL;
 
 public class AvlPane extends BstPane {
     private AVL<Integer> tree;
