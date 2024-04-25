@@ -11,7 +11,6 @@
 //package trees;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -28,17 +27,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("FXML/View.fxml"));
-            primaryStage.setTitle("Trees");
-            primaryStage.setScene(new Scene(root, 410, 340));
-        }
-        catch (NullPointerException e){
-            e.getMessage();
-        }
-        primaryStage.getIcons().add(new Image("file:data/icon.jpg"));
-        primaryStage.show();
-        alert.getDialogPane().setMinHeight(80);
-        alert.show();
+        
     }
 }
