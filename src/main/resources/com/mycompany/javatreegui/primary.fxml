@@ -1,16 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
-
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.javatreegui.PrimaryController">
-   <children>
-      <Label text="Primary View" />
-      <Button fx:id="primaryButton" text="Switch to Secondary View" onAction="#switchToSecondary"/>
-   </children>
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
+<?import javafx.scene.text.Font?>
+<!-- Controller = Primary Controller-->
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.mycompany.javatreegui.PrimaryController"
+      prefWidth="400" prefHeight="400"
+      style = "-fx-background-color: #fefae0;">
+   <!-- Heading HBox -->
+   <VBox style="-fx-background-color: #606c38; -fx-padding: 10;" alignment="CENTER">
+      <Label text="TREE DATA STRUCTURE" style="-fx-text-fill: #283618; -fx-font-weight: bold;">
+         <font>
+               <Font size="20.0"/>
+         </font>
+      </Label>
+      <Label text="VISUALIZER" style="-fx-text-fill: #283618; -fx-font-weight: bold;">
+         <font>
+               <Font size="18.0"/>
+         </font>
+      </Label>
+   </VBox>
+   <VBox style="-fx-background-color: black; -fx-padding: 2;" alignment="CENTER"/>
+   <!-- Main content VBox -->
+   <VBox alignment="CENTER" spacing="20.0">
+      <children>
+         <HBox alignment="CENTER" spacing="10.0">
+         <!-- Go to BST Button-->
+            <Button fx:id="bstButton" text="Binary Search Tree" onAction="#switchToSecondary" 
+            style="-fx-background-color: #dda15e; -fx-font-weight: bold;"
+            onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited">
+               <prefHeight>
+                  50
+               </prefHeight>
+               <prefWidth>
+                  175
+               </prefWidth>
+            </Button>
+         <!-- Go to AVL Button-->   
+            <Button fx:id="avlButton" text="AVL Tree" onAction="#switchToSecondary" 
+            style="-fx-background-color: #dda15e; -fx-font-weight: bold;"
+            onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited">
+               <prefHeight>
+                  50
+               </prefHeight>
+               <prefWidth>
+                  175
+               </prefWidth>
+            </Button>
+         </HBox>
+         <!-- Go to Performance Button-->
+         <Button fx:id="performanceButton" text="Performance Analysis" onAction="#switchToSecondary" 
+         style="-fx-background-color: #dda15e; -fx-font-weight: bold;"
+         onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited">
+               <prefHeight>
+                  40
+               </prefHeight>
+               <prefWidth>
+                  150
+               </prefWidth>
+            </Button>
+         <Button fx:id="acknowledgentsButton" text="Acknowledgments" onAction="#switchToSecondary" 
+         style="-fx-background-color: #dda15e; -fx-font-weight: bold;"
+         onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited">
+               <prefHeight>
+                  40
+               </prefHeight>
+               <prefWidth>
+                  150
+               </prefWidth>
+            </Button>
+      </children>
+      <padding>
+         <Insets bottom="20.0" left="20.0" right="20.0" top="100.0" />
+      </padding>
+   </VBox>
 </VBox>
