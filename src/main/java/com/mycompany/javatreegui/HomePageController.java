@@ -5,11 +5,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 
-public class HomePage {
+public class HomePageController {
 
     @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+    private void goToBST() throws IOException {
+        App.setRoot("binaryTreeUI");
     }
 
     public void handleMouseEntered(MouseEvent event) {

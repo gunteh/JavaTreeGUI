@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <!-- Controller = Home Page -->
 <VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" 
-      fx:controller="com.mycompany.javatreegui.HomePage"
+      fx:controller="com.mycompany.javatreegui.HomePageController"
       prefWidth="400" prefHeight="400"
       style = "-fx-background-color: #fefae0;">
    <!-- Heading HBox -->
@@ -30,7 +30,7 @@
       <children>
          <HBox alignment="CENTER" spacing="10.0">
          <!-- Go to BST Button-->
-            <Button fx:id="bstButton" text="Binary Search Tree" onAction="#switchToSecondary" 
+            <Button fx:id="bstButton" text="Binary Search Tree" onAction="#goToBST" 
             style="-fx-background-color: #dda15e; -fx-font-weight: bold;"
             onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited">
                <prefHeight>
@@ -41,7 +41,7 @@
                </prefWidth>
             </Button>
          <!-- Go to AVL Button-->   
-            <Button fx:id="avlButton" text="AVL Tree" onAction="#switchToSecondary" 
+            <Button fx:id="avlButton" text="AVL Tree" onAction="#goToBST" 
             style="-fx-background-color: #dda15e; -fx-font-weight: bold;"
             onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited">
                <prefHeight>
@@ -53,7 +53,7 @@
             </Button>
          </HBox>
          <!-- Go to Performance Button-->
-         <Button fx:id="performanceButton" text="Performance Analysis" onAction="#switchToSecondary" 
+         <Button fx:id="performanceButton" text="Performance Analysis" onAction="#goToBST" 
          style="-fx-background-color: #dda15e; -fx-font-weight: bold;"
          onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited">
                <prefHeight>
@@ -64,7 +64,7 @@
                </prefWidth>
             </Button>
          <!-- Show Creators-->
-         <Button fx:id="acknowledgentsButton" text="Acknowledgments" onAction="#switchToSecondary" 
+         <Button fx:id="acknowledgentsButton" text="Acknowledgments" onAction="#goToBST" 
          style="-fx-background-color: #dda15e; -fx-font-weight: bold;"
          onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited">
                <prefHeight>
