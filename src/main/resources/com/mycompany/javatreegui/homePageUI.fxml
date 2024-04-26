@@ -41,7 +41,7 @@
                </prefWidth>
             </Button>
          <!-- Go to AVL Button-->   
-            <Button fx:id="avlButton" text="AVL Tree" onAction="#goToBST" 
+            <Button fx:id="avlButton" text="AVL Tree" onAction="#goToAVL" 
             style="-fx-background-color: #dda15e; -fx-font-weight: bold;"
             onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited">
                <prefHeight>

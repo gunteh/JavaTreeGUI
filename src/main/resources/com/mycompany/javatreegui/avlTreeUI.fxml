@@ -8,13 +8,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Font?>
-<!-- Controller = Binary Search Tree Page -->
+<!-- Controller = AVL Tree Page -->
 <VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" 
-    fx:controller="com.mycompany.javatreegui.BSTController"
+    fx:controller="com.mycompany.javatreegui.AVLController"
     style = "-fx-background-color: #fefae0;">
     <!-- Heading VBox -->
     <VBox style="-fx-background-color: #606c38; -fx-padding: 10;" alignment="CENTER">
-      <Label text="BINARY SEARCH TREE" style="-fx-text-fill: #283618; -fx-font-weight: bold;">
+      <Label text="AVL TREE" style="-fx-text-fill: #283618; -fx-font-weight: bold;">
          <font>
                <Font size="20.0"/>
          </font>
