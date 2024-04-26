@@ -9,7 +9,7 @@ public class HomePageController {
 
     @FXML
     private void goToBST() throws IOException {
-        App.setRoot("binaryTreeUI");
+        App.setRoot("binaryTreeUI", 1000, 800);
     }
 
     public void handleMouseEntered(MouseEvent event) {

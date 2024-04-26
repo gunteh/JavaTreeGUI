@@ -7,6 +7,6 @@ public class BSTController {
 
     @FXML
     private void switchToPrimary() throws IOException {
-        App.setRoot("primary");
+        App.setRoot("primary", 400, 400);
     }
 }
