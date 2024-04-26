@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 
-public class PrimaryController {
+public class HomePage {
 
     @FXML
     private void switchToSecondary() throws IOException {
