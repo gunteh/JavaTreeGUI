@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Font?>
 <!-- Controller = Home Page -->
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" 
+<VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" 
     fx:controller="com.mycompany.javatreegui.BSTController"
-    prefWidth="800" prefHeight="1000"
     style = "-fx-background-color: #fefae0;">
-    <!-- Heading HBox -->
-   <VBox style="-fx-background-color: #606c38; -fx-padding: 10;" alignment="CENTER">
-      <Label text="TREE DATA STRUCTURE" style="-fx-text-fill: #283618; -fx-font-weight: bold;">
+    <!-- Heading VBox -->
+    <VBox style="-fx-background-color: #606c38; -fx-padding: 10;" alignment="CENTER">
+      <Label text="BINARY SEARCH TREE" style="-fx-text-fill: #283618; -fx-font-weight: bold;">
          <font>
                <Font size="20.0"/>
          </font>
@@ -22,12 +24,68 @@
                <Font size="18.0"/>
          </font>
       </Label>
-   </VBox>
+    </VBox>
+    <!-- HBox to hold all the function buttons-->
+    <HBox style="-fx-background-color: lightgrey; -fx-padding: 10; -fx-border-color: black; -fx-border-width: 5;" alignment="CENTER" spacing = "10">        
+        <Label text="Value: " style = "-fx-font-weight: bold">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Label>    
+        <TextField fx:id="textField" promptText="Enter Node Value" />
+        <!--Insert Value Button-->
+        <Button fx:id="insertButton" text="INSERT" onAction="#insertValue" 
+            style="-fx-background-color: #dda15e; -fx-font-weight: bold;"
+            onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited">
+               <prefHeight>
+                  30
+               </prefHeight>
+               <prefWidth>
+                  90
+               </prefWidth>
+            </Button>
+        <!--Delete Value Button-->
+        <Button fx:id="deleteButton" text="DELETE" onAction="#deleteValue" 
+            style="-fx-background-color: #dda15e; -fx-font-weight: bold;"
+            onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited">
+               <prefHeight>
+                  30
+               </prefHeight>
+               <prefWidth>
+                  90
+               </prefWidth>
+            </Button>
+        <!--Search Value Button-->
+        <Button fx:id="searchButton" text="SEARCH" onAction="#searchValue" 
+            style="-fx-background-color: #dda15e; -fx-font-weight: bold;"
+            onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited">
+               <prefHeight>
+                  30
+               </prefHeight>
+               <prefWidth>
+                  90
+               </prefWidth>
+        </Button>
+    </HBox>
+    <!--Home Button-->
+    <AnchorPane VBox.vgrow="ALWAYS">
+        <Button fx:id="homeButton" text="HOME" onAction="#goHome" 
+            style="-fx-background-color: #dda15e; -fx-font-weight: bold;"
+            onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited">
+            <AnchorPane.rightAnchor>
+                10
+            </AnchorPane.rightAnchor>
+            <AnchorPane.bottomAnchor>
+                10
+            </AnchorPane.bottomAnchor>
+            <prefHeight>
+                40
+            </prefHeight>
+            <prefWidth>
+                75
+            </prefWidth>
+        </Button>
+    </AnchorPane>
     <children>
-        <Label text="Secondary View" />
-        <Button fx:id="secondaryButton" text="Switch to Primary View" onAction="#switchToPrimary" />
     </children>
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
 </VBox>

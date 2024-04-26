@@ -28,12 +28,15 @@ public class App extends Application {
 
     static void setRoot(String fxml, double width, double height) throws IOException {
         Parent root = loadFXML(fxml);
+        scene.setRoot(root);
         Stage stage = (Stage) scene.getWindow();
+        //set dimensions of stage
+        stage.setWidth(width);
+        stage.setHeight(height);
         // Center the stage on the screen
-        stage.setScene(new Scene(root, width, height));
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((screenBounds.getWidth() - stage.getWidth()) / 2); 
-        stage.setY((screenBounds.getHeight() - stage.getHeight()) / 2); 
+        stage.setX((screenBounds.getWidth() - width) / 2);
+        stage.setY((screenBounds.getHeight() - height) / 2);
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
