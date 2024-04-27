@@ -10,9 +10,9 @@ package com.mycompany.javatreegui;
  */
 
 public interface Tree<E> extends Iterable<E> {
-    public boolean insert(E e);
-    public boolean delete(E e);
-    public boolean search(E e);
+    public PerformanceData insert(E e);
+    public PerformanceData delete(E e);
+    public PerformanceData search(E e);
     public void inorder();
     public void postorder();
     public void preorder();

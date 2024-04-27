@@ -9,8 +9,6 @@ package com.mycompany.javatreegui;
  *
  * @author gunterherd
  */
-//import JavaTreeGUI.src.main.java.TreeNode;
-//import JavaTreeGUI.src.main.java.BST;
 
 import java.util.ArrayList;
 
@@ -27,13 +25,10 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
     }
 
     @Override
-    public boolean insert(E e) {
-        boolean successful = super.insert(e);
-        if(!successful)
-            return false;
-        else
-            balancePath(e);
-        return true;
+    public PerformanceData insert(E e) {
+        PerformanceData data = super.insert(e);
+        data.rotations = balancePath(e);
+        return data;
     }
 
     private void updateHeight(TreeNode<E> node){
@@ -47,7 +42,7 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
             node.height = 1 + Math.max(node.left.height, node.right.height);
     }
 
-    private void balancePath(E e){
+    private int balancePath(E e){
         ArrayList<TreeNode<E>> path = path(e);
         for(int i=path.size()-1; i>=0; i--){
             TreeNode<E> A = path.get(i);
@@ -56,19 +51,24 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
 
             switch (balanceFactor(A)){
                 case -2:
-                    if(balanceFactor(A.left) <= 0)
+                    if(balanceFactor(A.left) <= 0) {
                         balanceLL(A, parentOfA);
-                    else
+                        return 1;
+                    } else {
                         balanceLR(A, parentOfA);
-                    break;
+                        return 2;
+                    }
                 case 2:
-                    if(balanceFactor(A.right) >= 0)
+                    if(balanceFactor(A.right) >= 0) {
                         balanceRR(A, parentOfA);
-                    else
+                        return 1;
+                    } else {
                         balanceRL(A, parentOfA);
-                    break;
+                        return 2;
+                    }
             }
         }
+        return 0;
     }
 
     private int balanceFactor(TreeNode<E> node){
@@ -153,13 +153,18 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
     }
 
     @Override
-    public boolean delete(E element){
-        if(root == null)
-            return false;
+    public PerformanceData delete(E element){
+        PerformanceData data = new PerformanceData(getSize(), root.height);
+        if(root == null) {
+            data.updateTime();
+            return data;
+        }
 
+        data.nodesTravelled++;
         TreeNode<E> parent = null;
         TreeNode<E> current = root;
         while(current != null){
+            data.nodesTravelled++;
             if(element.compareTo(current.element) < 0){
                 parent = current;
                 current = current.left;
@@ -170,8 +175,10 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
             }
             else break;
         }
-        if(current == null)
-            return false;
+        if(current == null) {
+            data.updateTime();
+            return data;
+        }
         if(current.left == null){
             if(parent == null)
                 root = current.right;
@@ -180,7 +187,7 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
                     parent.left = current.right;
                 else
                     parent.right = current.right;
-                balancePath(parent.element);
+                data.rotations = balancePath(parent.element);
             }
         }
         else{
@@ -198,9 +205,11 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
                 parentOfRightMost.right = rightMost.left;
             else
                 parentOfRightMost.left = rightMost.left;
-            balancePath(parentOfRightMost.element);
+            data.rotations = balancePath(parentOfRightMost.element);
         }
+        data.success = true;
         size--;
-        return true;
+        data.updateTime();
+        return data;
     }
 }

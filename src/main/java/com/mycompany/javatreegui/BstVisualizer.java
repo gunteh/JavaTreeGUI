@@ -70,7 +70,7 @@ public class BstVisualizer extends Application {
             else {
                 int key = Integer.parseInt(textField.getText());
                 nodes.add(key);
-                if (tree.search(key)) {
+                if (tree.search(key).success) {
                     view.displayTree();
                     view.setStatus(key + " is present already");
                 } else {
@@ -84,7 +84,7 @@ public class BstVisualizer extends Application {
 
         delete.setOnAction(e->{
             int key = Integer.parseInt(textField.getText());
-            if(!tree.search(key)){
+            if(!tree.search(key).success){
                 view.displayTree();
                 view.setStatus(key +" is not present");
             }

@@ -36,5 +36,12 @@ public class TreeNode<E extends Comparable<E>> {
         red = true;
     }
 
+    public int getChildren() {
+        int children = 0;
+        if (left != null) children++;
+        if (right != null) children++;
+        return children;
+    }
+
     int blackHeight;
 }
