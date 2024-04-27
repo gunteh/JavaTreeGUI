@@ -6,12 +6,14 @@ public class PerformanceData {
     int rotations;
     int preSize;
     int preHeight;
+    boolean success;
 
     public PerformanceData(int preSize, int preHeight) {
         opTime = System.nanoTime();
         this.preSize = preSize;
         this.preHeight = preHeight;
         rotations = 0;
+        success = false;
     }
 
     public void updateTime() {
