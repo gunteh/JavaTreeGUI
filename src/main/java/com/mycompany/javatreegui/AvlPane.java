@@ -33,7 +33,7 @@ public class AvlPane extends BstPane {
     }
 
     @Override
-    public void setStatus(String msg){
+    public void setStatus(String msg) {
         getChildren().add(new Text(20, 20, msg));
     }
 
@@ -47,12 +47,13 @@ public class AvlPane extends BstPane {
     public void displayTree() {
         getChildren().clear();
         System.out.println("Root Node: " + treeNode.getRoot());
-        if (treeNode.getRoot() != null) {                //Trying to get root node but it always is coming up as null which is the reason display isn't working
+        if (treeNode.getRoot() != null) { // Trying to get root node but it always is coming up as null which is the
+                                          // reason display isn't working
             displayTree(treeNode.getRoot(), getWidth() / 2, verticalGap, getWidth() / 4);
         }
     }
 
-    private void displayTree(TreeNode<Integer> root, double x, double y, double hGap) {
+    protected void displayTree(TreeNode<Integer> root, double x, double y, double hGap) {
         if (root.left != null) {
             // Draw line to left node
             getChildren().add(new Line(x - hGap, y + verticalGap, x, y));

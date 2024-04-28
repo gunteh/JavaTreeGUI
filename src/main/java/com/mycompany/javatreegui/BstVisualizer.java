@@ -4,7 +4,6 @@ package com.mycompany.javatreegui;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.BstVisualizer to edit this template
  */
 
-
 /**
  *
  * @author gunterherd
@@ -25,31 +24,33 @@ import java.util.ArrayList;
 
 public class BstVisualizer extends Application {
     private static ArrayList<Integer> nodes = new ArrayList<>();
+
     private static BST<Integer> tree;
     private static BstPane view;
-    
+
     @Override
-    public void start(Stage primaryStage){
+    public void start(Stage primaryStage) {
         tree = new BST<>();
         BorderPane pane = new BorderPane();
         view = new BstPane();
+        //view.setTree();
         setPane(pane, view, tree);
         setStage(pane, primaryStage, "Binary Search Tree Visualization");
-        Alert alert = new Alert(Alert.AlertType.INFORMATION,"This is a BST Visualization\n\n" +
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "This is a BST Visualization\n\n" +
                 "Use insert to add a node, use delete to remove a node.", ButtonType.OK);
         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
         alert.show();
     }
 
-    public void setStage(BorderPane pane, Stage primaryStage, String title){
-        Scene scene = new Scene(pane, 500,500);
+    public void setStage(BorderPane pane, Stage primaryStage, String title) {
+        Scene scene = new Scene(pane, 500, 500);
         primaryStage.setTitle(title);
-        //primaryStage.getIcons().add(new Image("file:data/tree.png"));
+        // primaryStage.getIcons().add(new Image("file:data/tree.png"));
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
-    public void setPane(BorderPane pane, BstPane view, BST<Integer> tree){
+    public void setPane(BorderPane pane, BstPane view, BST<Integer> tree) {
         pane.setCenter(view);
         TextField textField = new TextField();
         textField.setPrefColumnCount(3);
@@ -63,14 +64,13 @@ public class BstVisualizer extends Application {
         pane.setBottom(hBox);
     }
 
-    public void addFunctionalities(TextField textField, Button insert, Button delete, BST<Integer> tree, BstPane view){
-        insert.setOnAction(e->{
-            if(textField.getText().length() == 0) {
+    public void addFunctionalities(TextField textField, Button insert, Button delete, BST<Integer> tree, BstPane view) {
+        insert.setOnAction(e -> {
+            if (textField.getText().length() == 0) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Nothing entered", ButtonType.OK);
                 alert.getDialogPane().setMinHeight(80);
                 alert.show();
-            }
-            else {
+            } else {
                 int key = Integer.parseInt(textField.getText());
                 nodes.add(key);
                 if (tree.search(key).success) {
@@ -85,16 +85,15 @@ public class BstVisualizer extends Application {
             }
         });
 
-        delete.setOnAction(e->{
+        delete.setOnAction(e -> {
             int key = Integer.parseInt(textField.getText());
-            if(!tree.search(key).success){
+            if (!tree.search(key).success) {
                 view.displayTree();
-                view.setStatus(key +" is not present");
-            }
-            else{
+                view.setStatus(key + " is not present");
+            } else {
                 tree.delete(key);
                 view.displayTree();
-                view.setStatus(key+" is replaced and is deleted");
+                view.setStatus(key + " is replaced and is deleted");
             }
             textField.clear();
         });

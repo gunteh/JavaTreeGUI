@@ -12,10 +12,8 @@ public class BSTController {
 
     @FXML
     private TextField textField;
-
     @FXML
     private BstPane bstPane;
-
     private BST<Integer> tree = new BST<>();
 
     public void setBstPane(BstPane bstPane) {
@@ -30,8 +28,8 @@ public class BSTController {
     @FXML
     private void goHome() throws IOException {
         App.setRoot("homePageUI", 400, 400);
-    }   
-    
+    }
+
     public void handleMouseEntered(MouseEvent event) {
         Button button = (Button) event.getSource();
         button.setStyle("-fx-background-color: #bc6c25; -fx-font-weight: bold;");
@@ -49,7 +47,7 @@ public class BSTController {
         alert.setContentText(message);
         alert.showAndWait();
     }
-    
+
     private void showNotification(String title, String message) {
         Alert popup = new Alert(AlertType.INFORMATION);
         popup.setTitle(title);
@@ -63,7 +61,10 @@ public class BSTController {
         try {
             int value = Integer.parseInt(textField.getText());
             if (tree.insert(value).success) {
-                showNotification("Node Inserted", "Node " + value + " was inserted into the tree");
+                bstPane.setTree(tree);
+                bstPane.displayTree();
+                //showNotification("Node Inserted", "Node " + value + " was inserted into the tree");
+
             } else {
                 showAlert("Insertion Failed", "Node " + value + " could not be inserted (duplicate)");
             }
@@ -79,7 +80,8 @@ public class BSTController {
             int value = Integer.parseInt(textField.getText());
             PerformanceData deletionResult = tree.delete(value);
             if (deletionResult.success) {
-                showNotification("Node Deleted", "Node " + value + " was deleted from the tree");
+                //showNotification("Node Deleted", "Node " + value + " was deleted from the tree");
+                bstPane.displayTree();
             } else {
                 showAlert("Node Not Found", "Node " + value + " was not found in the tree");
             }

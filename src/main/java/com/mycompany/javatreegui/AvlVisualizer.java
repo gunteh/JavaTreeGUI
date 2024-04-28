@@ -25,14 +25,17 @@ public class AvlVisualizer extends BstVisualizer {
     private static AvlPane view;
 
     @Override
-    public void start(Stage primaryStage){
+    public void start(Stage primaryStage) {
         tree = new AVL<>();
         BorderPane pane = new BorderPane();
+        System.out.println("avl pane is called");
         view = new AvlPane();
         setPane(pane, view, tree);
         setStage(pane, primaryStage, "AVL Visualisation");
-        Alert alert = new Alert(Alert.AlertType.INFORMATION,"This is a AVL Visualiser for the operations of insertion and deletion.\n\n" +
-                "Use Insert to add a new node, use delete to remove a node.", ButtonType.OK);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION,
+                "This is a AVL Visualiser for the operations of insertion and deletion.\n\n" +
+                        "Use Insert to add a new node, use delete to remove a node.",
+                ButtonType.OK);
         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
         alert.show();
     }
