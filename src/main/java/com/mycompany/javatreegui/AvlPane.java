@@ -17,6 +17,8 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 //import JavaTreeGUI.src.main.java.AVL;
 
@@ -24,8 +26,8 @@ public class AvlPane extends BstPane {
     private AVL<Integer> treeNode;
     private double verticalGap = 50;
 
-    AvlPane(AVL<Integer> tree){
-        this.treeNode = tree;
+    public AvlPane() {
+        this.treeNode = new AVL<Integer>();
         setStatus("Empty Tree");
         setBackground(new Background(new BackgroundFill(Color.web("#" + "9ACD32"), CornerRadii.EMPTY, Insets.EMPTY)));
     }
@@ -35,11 +37,38 @@ public class AvlPane extends BstPane {
         getChildren().add(new Text(20, 20, msg));
     }
 
+    public void setTree(AVL<Integer> tree) {
+        this.treeNode = tree;
+        displayTree(); // Update tree display when a new tree is set
+    }
+
     @Override
-    public void displayTree(){
-        this.getChildren().clear();
-        if(treeNode.getRoot() != null){
-            displayTree(treeNode.getRoot(), getWidth() / 2, verticalGap, getWidth() / 4, Color.SEAGREEN);
+    public void displayTree() {
+        getChildren().clear();
+        if (treeNode.getRoot() != null) {
+            displayTree(treeNode.getRoot(), getWidth() / 2, verticalGap, getWidth() / 4);
         }
+    }
+
+    private void displayTree(TreeNode<Integer> root, double x, double y, double hGap) {
+        if (root.left != null) {
+            // Draw line to left node
+            getChildren().add(new Line(x - hGap, y + verticalGap, x, y));
+            // Draw left subtree
+            displayTree(root.left, x - hGap, y + verticalGap, hGap / 2);
+        }
+
+        if (root.right != null) {
+            // Draw line to right node
+            getChildren().add(new Line(x + hGap, y + verticalGap, x, y));
+            // Draw right subtree
+            displayTree(root.right, x + hGap, y + verticalGap, hGap / 2);
+        }
+
+        // Draw the node
+        Circle circle = new Circle(x, y, 15);
+        circle.setFill(Color.WHITE);
+        circle.setStroke(Color.BLACK);
+        getChildren().addAll(circle, new Text(x - 4, y + 4, root.element.toString()));
     }
 }

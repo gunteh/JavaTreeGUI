@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<?import com.mycompany.javatreegui.AvlPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,6 +12,8 @@
 <VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" 
     fx:controller="com.mycompany.javatreegui.AVLController"
     style = "-fx-background-color: #fefae0;">
+    <!--AVL Pane-->
+    <AvlPane fx:id="avlPane" />
     <!-- Heading VBox -->
     <VBox style="-fx-background-color: #606c38; -fx-padding: 10;" alignment="CENTER">
       <Label text="AVL TREE" style="-fx-text-fill: #283618; -fx-font-weight: bold;">

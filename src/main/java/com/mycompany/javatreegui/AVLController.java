@@ -13,6 +13,7 @@ public class AVLController {
 
     @FXML
     private TextField textField;
+    @FXML
     private AvlPane avlPane;
     private AVL<Integer> tree = new AVL<>();
 
@@ -20,7 +21,11 @@ public class AVLController {
                                                                                                                // I'm unsure if the tree is created properly, need help with it
     public void setAvlPane(AvlPane avlPane) {
         this.avlPane = avlPane;
- //       this.avlPane.setTree(this.tree); 
+        if (this.avlPane != null) {
+            this.avlPane.setTree(this.tree);
+        } else {
+            System.out.println("AvlPane is null. Check FXML configuration.");
+        }
     }
 
     @FXML
@@ -60,7 +65,7 @@ public class AVLController {
         try {
             int value = Integer.parseInt(textField.getText());
             if (tree.insert(value)) {
-               // avlPane.displayTree();                                                                           // Display of tree not working, need to help please - Alan
+               avlPane.displayTree();                                                                           // Display of tree not working, need to help please - Alan
                 showNotification("Node Inserted", "Node " + value + " was inserted into the tree");
             } else {
                 showAlert("Insertion Failed", "Node " + value + " could not be inserted (duplicate)");
