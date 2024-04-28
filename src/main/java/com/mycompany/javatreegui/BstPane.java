@@ -24,16 +24,14 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 
 public class BstPane extends Pane {
-    private BST<Integer> tree;
+    private BST<Integer> treeNode;
     private double radius = 15;
     private double vGap = 50;
 
-    protected BstPane(){ }
-
-    BstPane(BST<Integer> tree){
-        this.tree = tree;
+    public BstPane(){
+        this.treeNode = new AVL<Integer>();
         setStatus("Tree is empty");
-        setBackground(new Background(new BackgroundFill(Color.web("#" + "40E0D0"), CornerRadii.EMPTY, Insets.EMPTY)));
+        setBackground(new Background(new BackgroundFill(Color.web("#" + "fefae0"), CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
     public void setStatus(String msg){
@@ -41,33 +39,39 @@ public class BstPane extends Pane {
     }
 
     public void setTree(BST<Integer> tree) {
-        this.tree = tree;
+        this.treeNode = tree;
         System.out.println("Set tree instance: " + tree.getRoot());
         displayTree(); // Update tree display when a new tree is set
     }
 
-     public void displayTree(){
-        this.getChildren().clear();
-        if(tree.getRoot() != null){
-            displayTree(tree.getRoot(), getWidth() / 2, vGap, getWidth() / 4, Color.MEDIUMPURPLE);
+    public void displayTree() {
+        getChildren().clear();
+        System.out.println("Root Node: " + treeNode.getRoot());
+        if (treeNode.getRoot() != null) {                //Trying to get root node but it always is coming up as null which is the reason display isn't working
+            displayTree(treeNode.getRoot(), getWidth() / 2, vGap, getWidth() / 4);
         }
     }
 
-    protected void displayTree(TreeNode<Integer> root, double x, double y, double hGap, Color color){
-        if(root.left != null){
+    private void displayTree(TreeNode<Integer> root, double x, double y, double hGap) {
+        if (root.left != null) {
+            // Draw line to left node
             getChildren().add(new Line(x - hGap, y + vGap, x, y));
-            displayTree(root.left, x - hGap, y + vGap, hGap / 2,color);
+            // Draw left subtree
+            displayTree(root.left, x - hGap, y + vGap, hGap / 2);
         }
 
-        if (root.right != null){
+        if (root.right != null) {
+            // Draw line to right node
             getChildren().add(new Line(x + hGap, y + vGap, x, y));
-            displayTree(root.right, x + hGap, y + vGap, hGap / 2, color);
+            // Draw right subtree
+            displayTree(root.right, x + hGap, y + vGap, hGap / 2);
         }
 
-        Circle circle = new Circle(x, y, radius);
-        circle.setFill(color);
+        // Draw the node
+        Circle circle = new Circle(x, y, 15);
+        circle.setFill(Color.WHITE);
         circle.setStroke(Color.BLACK);
-        getChildren().addAll(circle, new Text(x - 4, y + 4, root.element + ""));
+        getChildren().addAll(circle, new Text(x - 4, y + 4, root.element.toString()));
     }
 
 }

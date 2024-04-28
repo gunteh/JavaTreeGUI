@@ -15,7 +15,6 @@ public class BSTController {
 
     @FXML
     private BstPane bstPane;
-
     private BST<Integer> tree = new BST<>();
 
     public void setBstPane(BstPane bstPane) {
@@ -63,7 +62,9 @@ public class BSTController {
         try {
             int value = Integer.parseInt(textField.getText());
             if (tree.insert(value).success) {
-                showNotification("Node Inserted", "Node " + value + " was inserted into the tree");
+                bstPane.setTree(tree);
+                bstPane.displayTree();   
+                //showNotification("Node Inserted", "Node " + value + " was inserted into the tree");
             } else {
                 showAlert("Insertion Failed", "Node " + value + " could not be inserted (duplicate)");
             }
@@ -79,7 +80,9 @@ public class BSTController {
             int value = Integer.parseInt(textField.getText());
             PerformanceData deletionResult = tree.delete(value);
             if (deletionResult.success) {
-                showNotification("Node Deleted", "Node " + value + " was deleted from the tree");
+                bstPane.setTree(tree);
+                bstPane.displayTree();   
+                //showNotification("Node Deleted", "Node " + value + " was deleted from the tree");
             } else {
                 showAlert("Node Not Found", "Node " + value + " was not found in the tree");
             }

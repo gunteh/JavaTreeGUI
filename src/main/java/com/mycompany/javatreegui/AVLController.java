@@ -67,7 +67,7 @@ public class AVLController {
             if (tree.insert(value).success) {
                 avlPane.setTree(tree);
                 avlPane.displayTree();                                                                           // Display of tree not working, need to help please - Alan
-                showNotification("Node Inserted", "Node " + value + " was inserted into the tree");
+                //showNotification("Node Inserted", "Node " + value + " was inserted into the tree");
             } else {
                 showAlert("Insertion Failed", "Node " + value + " could not be inserted (duplicate)");
             }
@@ -84,7 +84,7 @@ public class AVLController {
             if (tree.delete(value).success) {
                 avlPane.setTree(tree);
                 avlPane.displayTree();                                                                            // Display of tree not working, need to help please - Alan
-                showNotification("Node Deleted", "Node " + value + " was deleted from the tree");
+                //showNotification("Node Deleted", "Node " + value + " was deleted from the tree");
             } else {
                 showAlert("Node Not Found", "Node " + value + " was not found in the tree");
             }
