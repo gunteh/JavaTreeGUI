@@ -155,11 +155,12 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
 
     @Override
     public PerformanceData delete(E element){
-        PerformanceData data = new PerformanceData(getSize(), root.height);
+        PerformanceData data;
         if(root == null) {
+            data = new PerformanceData(getSize(), 0);
             data.updateTime();
             return data;
-        }
+        } else {data = new PerformanceData(getSize(), root.height);}
 
         data.nodesTravelled++;
         TreeNode<E> parent = null;
