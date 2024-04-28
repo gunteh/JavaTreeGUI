@@ -56,6 +56,12 @@ public class BST<E extends Comparable<E>> implements Tree<E>  {
     @Override
     public PerformanceData insert(E e) {
         PerformanceData data = new PerformanceData(getSize(), root.height);
+        if (root == null) {
+            data.updateTime();
+            data.success = true;
+            size++;
+            return data;
+        }
         TreeNode<E> curNode = root;
         data.nodesTravelled++;
         while (true) {
