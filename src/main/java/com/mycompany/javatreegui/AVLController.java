@@ -82,7 +82,8 @@ public class AVLController {
         try {
             int value = Integer.parseInt(textField.getText());
             if (tree.delete(value).success) {
-            //    avlPane.displayTree();                                                                            // Display of tree not working, need to help please - Alan
+                avlPane.setTree(tree);
+                avlPane.displayTree();                                                                            // Display of tree not working, need to help please - Alan
                 showNotification("Node Deleted", "Node " + value + " was deleted from the tree");
             } else {
                 showAlert("Node Not Found", "Node " + value + " was not found in the tree");
