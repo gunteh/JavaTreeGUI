@@ -64,7 +64,7 @@ public class AVLController {
     private void insertValue() {
         try {
             int value = Integer.parseInt(textField.getText());
-            if (tree.insert(value)) {
+            if (tree.insert(value).success) {
                avlPane.displayTree();                                                                           // Display of tree not working, need to help please - Alan
                 showNotification("Node Inserted", "Node " + value + " was inserted into the tree");
             } else {
@@ -80,7 +80,7 @@ public class AVLController {
     private void deleteValue() {
         try {
             int value = Integer.parseInt(textField.getText());
-            if (tree.delete(value)) {
+            if (tree.delete(value).success) {
             //    avlPane.displayTree();                                                                            // Display of tree not working, need to help please - Alan
                 showNotification("Node Deleted", "Node " + value + " was deleted from the tree");
             } else {
