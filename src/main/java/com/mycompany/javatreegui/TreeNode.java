@@ -20,22 +20,6 @@ public class TreeNode<E extends Comparable<E>> {
         element = e;
     }
 
-    public boolean isRed() {
-        return red;
-    }
-
-    public boolean isBlack() {
-        return !red;
-    }
-
-    public void setBlack() {
-        red = false;
-    }
-
-    public void setRed() {
-        red = true;
-    }
-
     public int getChildren() {
         int children = 0;
         if (left != null) children++;
@@ -43,5 +27,4 @@ public class TreeNode<E extends Comparable<E>> {
         return children;
     }
 
-    int blackHeight;
 }
