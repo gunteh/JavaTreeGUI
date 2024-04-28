@@ -72,7 +72,7 @@
     <HBox style="-fx-background-color: white; -fx-padding: 10; -fx-border-color: black; -fx-border-width: 2" alignment="BOTTOM_RIGHT" spacing = "600">
         <!--Performance Stats-->
         <VBox spacing="10">
-            <Label fx:id="statsText1" text="Tree Height:                            Rotations Required: " style="-fx-text-fill: black; -fx-font-weight: bold;">
+            <Label fx:id="statsText1" text="Tree Height: " style="-fx-text-fill: black; -fx-font-weight: bold;">
                 <font>
                     <Font size="10.0"/>
                 </font>
