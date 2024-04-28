@@ -96,7 +96,7 @@ public class AVLController {
     private void searchValue(){
         try {
             int value = Integer.parseInt(textField.getText());
-            if(tree.search(value)) {
+            if(tree.search(value).success) {
             showNotification("Node found!", "Node " + value + " is in the tree");
             }else {
             showAlert("Node not found", "Node " + value + " was not found in the tree");

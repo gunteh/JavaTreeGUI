@@ -153,10 +153,6 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
         updateHeight(C);
     }
 
-    public boolean search(E element) {
-        return search(root, element);
-    }
-
     private boolean search(TreeNode<E> node, E element) {
         if (node == null) {
             return false;
