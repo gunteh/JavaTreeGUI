@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -12,6 +13,8 @@ public class BSTController {
 
     @FXML
     private TextField textField;
+    @FXML
+    private Label statsText1;
     @FXML
     private BstPane bstPane;
     private BST<Integer> tree = new BST<>();
@@ -60,7 +63,9 @@ public class BSTController {
     private void insertValue() {
         try {
             int value = Integer.parseInt(textField.getText());
-            if (tree.insert(value).success) {
+            PerformanceData data = tree.insert(value);
+            statsText1.setText("Time Taken for Operation: " + data.opTime + "ns   Nodes Travelled: " + data.nodesTravelled);
+            if (data.success) {
                 bstPane.setTree(tree);
                 bstPane.displayTree();
                 //showNotification("Node Inserted", "Node " + value + " was inserted into the tree");
@@ -79,6 +84,7 @@ public class BSTController {
         try {
             int value = Integer.parseInt(textField.getText());
             PerformanceData deletionResult = tree.delete(value);
+            statsText1.setText("Time Taken for Operation: " + deletionResult.opTime + "ns   Nodes Travelled: " + deletionResult.nodesTravelled);
             if (deletionResult.success) {
                 //showNotification("Node Deleted", "Node " + value + " was deleted from the tree");
                 bstPane.displayTree();
@@ -95,7 +101,9 @@ public class BSTController {
     private void searchValue() {
         try {
             int value = Integer.parseInt(textField.getText());
-            if (tree.search(value).success) {
+            PerformanceData searchData = tree.search(value);
+            statsText1.setText("Time Taken for Operation: " + searchData.opTime + "ns   Nodes Travelled: " + searchData.nodesTravelled);
+            if (searchData.success) {
                 showNotification("Node found!", "Node " + value + " is in the tree");
             } else {
                 showAlert("Node not found", "Node " + value + " was not found in the tree");
