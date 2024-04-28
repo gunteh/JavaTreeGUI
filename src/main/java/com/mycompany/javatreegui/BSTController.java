@@ -63,7 +63,7 @@ public class BSTController {
             if (tree.insert(value).success) {
                 bstPane.setTree(tree);
                 bstPane.displayTree();
-                showNotification("Node Inserted", "Node " + value + " was inserted into the tree");
+                //showNotification("Node Inserted", "Node " + value + " was inserted into the tree");
 
             } else {
                 showAlert("Insertion Failed", "Node " + value + " could not be inserted (duplicate)");
@@ -80,7 +80,7 @@ public class BSTController {
             int value = Integer.parseInt(textField.getText());
             PerformanceData deletionResult = tree.delete(value);
             if (deletionResult.success) {
-                showNotification("Node Deleted", "Node " + value + " was deleted from the tree");
+                //showNotification("Node Deleted", "Node " + value + " was deleted from the tree");
                 bstPane.displayTree();
             } else {
                 showAlert("Node Not Found", "Node " + value + " was not found in the tree");

@@ -67,18 +67,26 @@
                </prefWidth>
         </Button>
     </HBox>
-    <BstPane fx:id="bstPane" VBox.vgrow="ALWAYS" minHeight="400" minWidth="600"/>
-    <!--Home Button-->
-    <AnchorPane VBox.vgrow="ALWAYS">
+    <BstPane fx:id="bstPane" VBox.vgrow="ALWAYS" />
+    <!--Hbox for Stats and Home Button-->
+    <HBox style="-fx-background-color: white; -fx-padding: 10; -fx-border-color: black; -fx-border-width: 2" alignment="BOTTOM_RIGHT" spacing = "600">
+        <!--Performance Stats-->
+        <VBox spacing="10">
+            <Label fx:id="statsText1" text="Tree Height:                            Rotations Required: " style="-fx-text-fill: black; -fx-font-weight: bold;">
+                <font>
+                    <Font size="10.0"/>
+                </font>
+            </Label>
+            <Label fx:id="statsText2" text="Time Taken for Operation:    Nodes Travelled: " style="-fx-text-fill: black; -fx-font-weight: bold;">
+                <font>
+                    <Font size="10.0"/>
+                </font>
+            </Label>
+        </VBox>
+        <!--Home Button-->
         <Button fx:id="homeButton" text="HOME" onAction="#goHome" 
             style="-fx-background-color: #dda15e; -fx-font-weight: bold;"
             onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited">
-            <AnchorPane.rightAnchor>
-                10
-            </AnchorPane.rightAnchor>
-            <AnchorPane.bottomAnchor>
-                10
-            </AnchorPane.bottomAnchor>
             <prefHeight>
                 40
             </prefHeight>
@@ -86,7 +94,7 @@
                 75
             </prefWidth>
         </Button>
-    </AnchorPane>
+    </HBox>
     <children>
     </children>
 </VBox>

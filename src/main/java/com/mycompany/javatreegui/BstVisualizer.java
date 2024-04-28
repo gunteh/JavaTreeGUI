@@ -33,7 +33,7 @@ public class BstVisualizer extends Application {
         tree = new BST<>();
         BorderPane pane = new BorderPane();
         view = new BstPane();
-        view.setTree();
+        //view.setTree();
         setPane(pane, view, tree);
         setStage(pane, primaryStage, "Binary Search Tree Visualization");
         Alert alert = new Alert(Alert.AlertType.INFORMATION, "This is a BST Visualization\n\n" +

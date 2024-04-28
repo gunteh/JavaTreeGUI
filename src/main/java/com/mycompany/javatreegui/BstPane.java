@@ -29,7 +29,7 @@ public class BstPane extends Pane {
     public BstPane() {
         this.tree = new BST<Integer>();
         setStatus("Empty Tree");
-        setBackground(new Background(new BackgroundFill(Color.web("#" + "9ACD32"), CornerRadii.EMPTY, Insets.EMPTY)));
+        setBackground(new Background(new BackgroundFill(Color.web("#" + "fefae0"), CornerRadii.EMPTY, Insets.EMPTY)));
 
     }
 
