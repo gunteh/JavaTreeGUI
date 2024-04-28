@@ -45,7 +45,7 @@ public class AvlPane extends BstPane {
     @Override
     public void displayTree() {
         getChildren().clear();
-        if (treeNode.getRoot() != null) {
+        if (treeNode.getRoot() != null) {                //Trying to get root node but it always is coming up as null which is the reason display isn't working
             displayTree(treeNode.getRoot(), getWidth() / 2, verticalGap, getWidth() / 4);
         }
     }
