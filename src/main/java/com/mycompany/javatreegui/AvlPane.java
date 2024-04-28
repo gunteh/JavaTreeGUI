@@ -29,7 +29,7 @@ public class AvlPane extends BstPane {
     public AvlPane() {
         this.treeNode = new AVL<Integer>();
         setStatus("Empty Tree");
-        setBackground(new Background(new BackgroundFill(Color.web("#" + "9ACD32"), CornerRadii.EMPTY, Insets.EMPTY)));
+        setBackground(new Background(new BackgroundFill(Color.web("#" + "fefae0"), CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
     @Override
