@@ -173,47 +173,71 @@ public class BST<E extends Comparable<E>> implements Tree<E>  {
         boolean isLeft = true;
         TreeNode<E> curNode = root;
         TreeNode<E> parent = null;
-        while (curNode != null && e.compareTo(curNode.element) != 0) {
-            data.nodesTravelled++;
-            parent = curNode;
-            if (e.compareTo(curNode.element) < 0) {
-                isLeft = true;
-                curNode = curNode.left;
-            } else {
-                isLeft = false;
-                curNode = curNode.right;
-            }
-        }
-        if (curNode == null) {
-            return null;
-        }
-        if (curNode.getChildren() == 0) {
-            if (isLeft) parent.left = null;
-            else parent.right = null;
-            data.updateTime();
-            return data;
+       
+     while (curNode != null && e.compareTo(curNode.element) != 0) {
+        data.nodesTravelled++;
+        parent = curNode;
+        if (e.compareTo(curNode.element) < 0) {
+            isLeft = true;
+            curNode = curNode.left;
         } else {
-            TreeNode<E> replacement;
-            if (curNode.getChildren() == 2) {
-                replacement = findSuccessor(curNode);
-                delete(replacement.element);
-                replacement.left = curNode.left;
-                replacement.right = curNode.right;
-            } else {
-                if (curNode.left != null) {
-                    replacement = curNode.left;
-                } else {
-                    replacement = curNode.right;
-                }
-            }
-            if (parent == null) {
-                root = replacement;
-            } else if (isLeft) {
-                parent.left = replacement;
-            } else {
-                parent.right = replacement;
-            }
+            isLeft = false;
+            curNode = curNode.right;
         }
+    }
+    
+    //node not found
+    if (curNode == null) {
+        data.success = false; // Set success flag to false
+        data.updateTime();
+        return data; // Return the data indicating that the deletion was unsuccessful
+    }
+    
+    //case 1 : Node to delete has no children
+    if (curNode.left == null && curNode.right == null) {
+        if (parent == null) {
+            root = null;
+        } else if (isLeft) {
+            parent.left = null;
+        } else {
+            parent.right = null;
+        }
+    }
+    
+    // Case 2: Node to delete has only one child
+    else if (curNode.left == null) {
+        if (parent == null) {
+            root = curNode.right;
+        } else if (isLeft) {
+            parent.left = curNode.right;
+        } else {
+            parent.right = curNode.right;
+        }
+    } else if (curNode.right == null) {
+        if (parent == null) {
+            root = curNode.left;
+        } else if (isLeft) {
+            parent.left = curNode.left;
+        } else {
+            parent.right = curNode.left;
+        }
+    }
+    
+    // Case 3: Node to delete has two children
+    else {
+        TreeNode<E> successor = findSuccessor(curNode);
+        delete(successor.element);
+        successor.left = curNode.left;
+        successor.right = curNode.right;
+        if (parent == null) {
+            root = successor;
+        } else if (isLeft) {
+            parent.left = successor;
+        } else {
+            parent.right = successor;
+        }
+    }
+    
         size--;
         data.success = true;
         data.updateTime();

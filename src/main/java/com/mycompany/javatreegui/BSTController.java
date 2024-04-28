@@ -2,11 +2,31 @@ package com.mycompany.javatreegui;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 public class BSTController {
+
+    @FXML
+    private TextField textField;
+
+    @FXML
+    private BstPane bstPane;
+
+    private BST<Integer> tree = new BST<>();
+
+    public void setBstPane(BstPane bstPane) {
+        this.bstPane = bstPane;
+        if (this.bstPane != null) {
+            this.bstPane.setTree(this.tree);
+        } else {
+            System.out.println("BstPane is null. Check FXML configuration.");
+        }
+    }
+
     @FXML
     private void goHome() throws IOException {
         App.setRoot("homePageUI", 400, 400);
@@ -22,17 +42,64 @@ public class BSTController {
         button.setStyle("-fx-background-color: #dda15e; -fx-font-weight: bold;");
     }
 
-    //Implement
-    @FXML
-    private void insertValue(){
-
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
-    @FXML
-    private void deleteValue(){
-
+    
+    private void showNotification(String title, String message) {
+        Alert popup = new Alert(AlertType.INFORMATION);
+        popup.setTitle(title);
+        popup.setHeaderText(null);
+        popup.setContentText(message);
+        popup.showAndWait();
     }
-    @FXML
-    private void searchValue(){
 
+    @FXML
+    private void insertValue() {
+        try {
+            int value = Integer.parseInt(textField.getText());
+            if (tree.insert(value).success) {
+                showNotification("Node Inserted", "Node " + value + " was inserted into the tree");
+            } else {
+                showAlert("Insertion Failed", "Node " + value + " could not be inserted (duplicate)");
+            }
+            textField.clear();
+        } catch (Exception e) {
+            showAlert("Invalid Input", "Please enter a valid integer.");
+        }
+    }
+
+    @FXML
+    private void deleteValue() {
+        try {
+            int value = Integer.parseInt(textField.getText());
+            PerformanceData deletionResult = tree.delete(value);
+            if (deletionResult.success) {
+                showNotification("Node Deleted", "Node " + value + " was deleted from the tree");
+            } else {
+                showAlert("Node Not Found", "Node " + value + " was not found in the tree");
+            }
+            textField.clear();
+        } catch (NumberFormatException e) {
+            showAlert("Invalid Input", "Please enter a valid integer.");
+        }
+    }
+
+    @FXML
+    private void searchValue() {
+        try {
+            int value = Integer.parseInt(textField.getText());
+            if (tree.search(value).success) {
+                showNotification("Node found!", "Node " + value + " is in the tree");
+            } else {
+                showAlert("Node not found", "Node " + value + " was not found in the tree");
+            }
+        } catch (NumberFormatException e) {
+            showAlert("Invalid Input", "Please enter a valid integer.");
+        }
     }
 }

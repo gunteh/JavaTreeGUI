@@ -40,6 +40,12 @@ public class BstPane extends Pane {
         getChildren().add(new Text(20, 20, msg));
     }
 
+    public void setTree(BST<Integer> tree) {
+        this.tree = tree;
+        System.out.println("Set tree instance: " + tree.getRoot());
+        displayTree(); // Update tree display when a new tree is set
+    }
+
      public void displayTree(){
         this.getChildren().clear();
         if(tree.getRoot() != null){
