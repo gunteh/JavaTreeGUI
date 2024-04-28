@@ -28,7 +28,7 @@ public class AvlVisualizer extends BstVisualizer {
     public void start(Stage primaryStage){
         tree = new AVL<>();
         BorderPane pane = new BorderPane();
-        view = new AvlPane(tree);
+        view = new AvlPane();
         setPane(pane, view, tree);
         setStage(pane, primaryStage, "AVL Visualisation");
         Alert alert = new Alert(Alert.AlertType.INFORMATION,"This is a AVL Visualiser for the operations of insertion and deletion.\n\n" +
