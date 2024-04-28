@@ -4,7 +4,6 @@ package com.mycompany.javatreegui;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.BstPane to edit this template
  */
 
-
 /**
  *
  * @author gunterherd
@@ -25,49 +24,47 @@ import javafx.scene.text.Text;
 
 public class BstPane extends Pane {
     private BST<Integer> tree;
-    private double radius = 15;
     private double vGap = 50;
 
-    protected BstPane(){ }
+    public BstPane() {
+        this.tree = new BST<Integer>();
+        setStatus("Empty Tree");
+        setBackground(new Background(new BackgroundFill(Color.web("#" + "9ACD32"), CornerRadii.EMPTY, Insets.EMPTY)));
 
-    BstPane(BST<Integer> tree){
-        this.tree = tree;
-        setStatus("Tree is empty");
-        setBackground(new Background(new BackgroundFill(Color.web("#" + "40E0D0"), CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
-    public void setStatus(String msg){
+    public void setStatus(String msg) {
         getChildren().add(new Text(20, 20, msg));
     }
 
     public void setTree(BST<Integer> tree) {
         this.tree = tree;
-        System.out.println("Set tree instance: " + tree.getRoot());
+        System.out.println("Set tree instance: " + tree.getRoot().element);
         displayTree(); // Update tree display when a new tree is set
     }
 
-     public void displayTree(){
-        this.getChildren().clear();
-        if(tree.getRoot() != null){
-            displayTree(tree.getRoot(), getWidth() / 2, vGap, getWidth() / 4, Color.MEDIUMPURPLE);
+    public void displayTree() {
+        getChildren().clear();
+        System.out.println("Root Node: " + tree.getRoot().element);
+        if (tree.getRoot() != null) {
+            displayTree(tree.getRoot(), getWidth() / 2, vGap, getWidth() / 4);
         }
     }
 
-    protected void displayTree(TreeNode<Integer> root, double x, double y, double hGap, Color color){
-        if(root.left != null){
+    protected void displayTree(TreeNode<Integer> root, double x, double y, double hGap) {
+        if (root.left != null) {
             getChildren().add(new Line(x - hGap, y + vGap, x, y));
-            displayTree(root.left, x - hGap, y + vGap, hGap / 2,color);
+            displayTree(root.left, x - hGap, y + vGap, hGap / 2);
         }
 
-        if (root.right != null){
+        if (root.right != null) {
             getChildren().add(new Line(x + hGap, y + vGap, x, y));
-            displayTree(root.right, x + hGap, y + vGap, hGap / 2, color);
+            displayTree(root.right, x + hGap, y + vGap, hGap / 2);
         }
-
-        Circle circle = new Circle(x, y, radius);
-        circle.setFill(color);
+        Circle circle = new Circle(x, y, 15);
+        circle.setFill(Color.WHITE);
         circle.setStroke(Color.BLACK);
-        getChildren().addAll(circle, new Text(x - 4, y + 4, root.element + ""));
+        getChildren().addAll(circle, new Text(x - 4, y + 4, root.element.toString() + ""));
     }
 
 }

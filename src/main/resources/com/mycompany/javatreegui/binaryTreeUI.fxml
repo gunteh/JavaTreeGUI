@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<?import com.mycompany.javatreegui.BstPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -67,6 +67,7 @@
                </prefWidth>
         </Button>
     </HBox>
+    <BstPane fx:id="bstPane" VBox.vgrow="ALWAYS" minHeight="400" minWidth="600"/>
     <!--Home Button-->
     <AnchorPane VBox.vgrow="ALWAYS">
         <Button fx:id="homeButton" text="HOME" onAction="#goHome" 
