@@ -52,17 +52,6 @@
                </prefWidth>
             </Button>
          </HBox>
-         <!-- Go to Performance Button-->
-         <Button fx:id="performanceButton" text="Performance Analysis" onAction="#goToBST" 
-         style="-fx-background-color: #dda15e; -fx-font-weight: bold;"
-         onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited">
-               <prefHeight>
-                  40
-               </prefHeight>
-               <prefWidth>
-                  150
-               </prefWidth>
-            </Button>
          <!-- Show Creators-->
          <Button fx:id="acknowledgentsButton" text="Acknowledgments" onAction="#goToBST" 
          style="-fx-background-color: #dda15e; -fx-font-weight: bold;"
