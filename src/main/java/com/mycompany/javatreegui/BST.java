@@ -45,12 +45,12 @@ public class BST<E extends Comparable<E>> implements Tree<E>  {
         data.nodesTravelled++;
         while(true) {
             if (curNode == null) break;
-            else if (e.compareTo(root.element) == 0) {
+            else if (e.compareTo(curNode.element) == 0) {
                 data.success = true;
                 break;
             } else {
                 data.nodesTravelled++;
-                if (e.compareTo(root.element) > 0) curNode = curNode.right;
+                if (e.compareTo(curNode.element) > 0) curNode = curNode.right;
                 else curNode = curNode.left;
             }
         }
@@ -62,6 +62,7 @@ public class BST<E extends Comparable<E>> implements Tree<E>  {
     public PerformanceData insert(E e) {
         PerformanceData data;
         if (root == null) {
+            root = createNewNode(e);
             data = new PerformanceData(getSize(), 0);
             data.success = true;
             size++;
