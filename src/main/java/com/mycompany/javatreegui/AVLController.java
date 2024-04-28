@@ -65,6 +65,7 @@ public class AVLController {
         try {
             int value = Integer.parseInt(textField.getText());
             if (tree.insert(value).success) {
+                avlPane.setTree(tree);
                avlPane.displayTree();                                                                           // Display of tree not working, need to help please - Alan
                 showNotification("Node Inserted", "Node " + value + " was inserted into the tree");
             } else {

@@ -39,12 +39,14 @@ public class AvlPane extends BstPane {
 
     public void setTree(AVL<Integer> tree) {
         this.treeNode = tree;
+        System.out.println("Set tree instance: " + tree.getRoot());
         displayTree(); // Update tree display when a new tree is set
     }
 
     @Override
     public void displayTree() {
         getChildren().clear();
+        System.out.println("Root Node: " + treeNode.getRoot());
         if (treeNode.getRoot() != null) {                //Trying to get root node but it always is coming up as null which is the reason display isn't working
             displayTree(treeNode.getRoot(), getWidth() / 2, verticalGap, getWidth() / 4);
         }
