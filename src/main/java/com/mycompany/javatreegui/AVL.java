@@ -153,19 +153,6 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
         updateHeight(C);
     }
 
-    private boolean search(TreeNode<E> node, E element) {
-        if (node == null) {
-            return false;
-        }
-        if (element.compareTo(node.element) < 0) {
-            return search(node.left, element);
-        } else if (element.compareTo(node.element) > 0) {
-            return search(node.right, element);
-        } else {
-            return true;
-        }
-    }
-
     @Override
     public PerformanceData delete(E element){
         PerformanceData data = new PerformanceData(getSize(), root.height);
