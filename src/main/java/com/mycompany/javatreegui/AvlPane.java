@@ -1,17 +1,4 @@
 package com.mycompany.javatreegui;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author gunterherd
- */
-
-//import JavaTreeGUI.src.main.java.BstPane;
-
 import javafx.geometry.Insets;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -26,6 +13,7 @@ public class AvlPane extends BstPane {
     private AVL<Integer> treeNode;
     private double verticalGap = 50;
 
+    //Set's the avl pane in the screen
     public AvlPane() {
         this.treeNode = new AVL<Integer>();
         setStatus("Empty Tree");
@@ -37,6 +25,7 @@ public class AvlPane extends BstPane {
         getChildren().add(new Text(20, 20, msg));
     }
 
+    //Creates tree data structure
     public void setTree(AVL<Integer> tree) {
         this.treeNode = tree;
         System.out.println("Set tree instance: " + tree.getRoot());
@@ -47,8 +36,7 @@ public class AvlPane extends BstPane {
     public void displayTree() {
         getChildren().clear();
         System.out.println("Root Node: " + treeNode.getRoot());
-        if (treeNode.getRoot() != null) { // Trying to get root node but it always is coming up as null which is the
-                                          // reason display isn't working
+        if (treeNode.getRoot() != null) { 
             displayTree(treeNode.getRoot(), getWidth() / 2, verticalGap, getWidth() / 4);
         }
     }

@@ -1,14 +1,4 @@
 package com.mycompany.javatreegui;
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author gunterherd
- */
-
 public class TreeNode<E extends Comparable<E>> {
     public E element;
     public TreeNode<E> left;

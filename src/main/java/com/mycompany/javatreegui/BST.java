@@ -1,16 +1,4 @@
 package com.mycompany.javatreegui;
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author gunterherd
- */
-
-//import JavaTreeGUI.src.main.java.Tree;
-//import JavaTreeGUI.src.main.java.TreeNode;
 
 import java.util.ArrayList;
 import java.util.Iterator;

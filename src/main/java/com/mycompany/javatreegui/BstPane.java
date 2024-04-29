@@ -1,16 +1,4 @@
 package com.mycompany.javatreegui;
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.BstPane to edit this template
- */
-
-/**
- *
- * @author gunterherd
- */
-
-//import JavaTreeGUI.src.main.java.TreeNode;
-//import JavaTreeGUI.src.main.java.BST;
 
 import javafx.geometry.Insets;
 import javafx.scene.layout.Background;
