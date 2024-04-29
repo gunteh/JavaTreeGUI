@@ -1,15 +1,5 @@
 package com.mycompany.javatreegui;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author gunterherd
- */
-
 import java.util.ArrayList;
 
 public class AVL<E extends Comparable<E>> extends BST<E> {
