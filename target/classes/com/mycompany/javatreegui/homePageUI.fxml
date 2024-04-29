@@ -53,16 +53,6 @@
             </Button>
          </HBox>
          <!-- Show Creators-->
-         <Button fx:id="acknowledgentsButton" text="Acknowledgments" onAction="#goToBST" 
-         style="-fx-background-color: #dda15e; -fx-font-weight: bold;"
-         onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited">
-               <prefHeight>
-                  40
-               </prefHeight>
-               <prefWidth>
-                  150
-               </prefWidth>
-            </Button>
       </children>
       <padding>
          <Insets bottom="20.0" left="20.0" right="20.0" top="100.0" />
